@@ -1,0 +1,11 @@
+<div class="page_header">
+	<h1>Galleries</h1>
+</div>
+
+<section class="page_content">
+	<% Image::GALLERIES.each do |name, gallery| %>
+		<div class="index_item">
+			<%= link_to gallery[:name], images_path(:gallery => gallery[:slug]) %>
+		</div>
+	<% end %>
+</section>

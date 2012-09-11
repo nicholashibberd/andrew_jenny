@@ -1,0 +1,168 @@
+@import "mixins";
+
+$pale_green: #E7ECDE;
+$grey_green: #D3D8CB;
+$grey: #666;
+$pink: #F9D8D2;
+
+/*****************
+Common elements
+*****************/
+
+a, a:hover { text-decoration:none }
+.spacer { clear:both }
+
+/*****************
+Layout
+*****************/
+
+body {
+	background: url(backgrounds/leaves.gif);			
+	color: $grey;
+}
+
+#wrapper {
+	background: white;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 960px;
+	padding: 20px;
+	@include shadowed(0 0 10px #666);
+	@include rounded(20px);	
+}
+
+#inner_wrapper {
+	border: 10px solid $pale_green;
+	@include rounded(20px);	
+}
+
+#header {
+	height: 120px;
+	position: relative;
+	padding-top: 60px;
+	
+	#branch { position: absolute; right: 0px; top:30px }
+	#logo { margin-left: 30px }
+}
+
+#top_nav {
+	background: $pale_green;
+	height: 50px;
+	padding: 10px 0 0 10px;
+	
+	a {
+		float: left;
+		display: block;
+		font-size: 15px;
+		font-weight: bold;
+		color: $grey;
+		padding: 10px 15px;	
+		margin-right: 10px;
+		@include rounded(5px);			
+	}
+
+	a.selected {
+		background: white;
+		text-shadow: 1px 1px 1px #fff;
+	}	
+	
+	#top_nav_inner { position: absolute; }
+	
+}
+
+#main_body {
+	padding: 40px 20px;
+	
+	.full_width .gallery { text-align: center }
+	.half { width: 450px; float: left; }
+	.one_third { width: 300px; float: left; }
+	.two_thirds { width: 600px; float: left; }	
+	.sixty { width: 500px; float: left; }
+	.forty { width: 400px; float: left; }
+	.widget { margin-bottom: 30px; }
+	
+	.photo_widget { text-align: center; }
+}
+
+#travel {
+	.two_thirds_one_third_1 {
+		.left .content_widget { width: 560px; }
+		.right .photo_widget { margin-top: 50px; }
+	}
+	.sixty_forty_1 {
+		.content_widget { width: 450px; }
+	}
+	.sixty_forty_2, .sixty_forty_3, .sixty_forty_4 {
+		.content_widget { width: 400px; }
+	}
+}
+
+/*****************
+RSVP
+*****************/
+
+#rsvp_form {
+	border: 10px solid $pale_green;
+	@include rounded(10px);	
+	margin: 20px;
+	padding: 30px;
+	h1 { margin-bottom: 20px;}
+		
+	.field {
+		margin-bottom: 15px;
+	
+		h3 { margin-bottom: 5px; }
+		input[type=text] { width: 400px; }
+		textarea { width: 500px; height: 200px; }
+	}
+	
+	#menu_choice_fields { height: 100px; }
+	.field_group { width: 200px; float: left;}
+}
+
+.thankyou_image {
+	text-align: center;
+}
+
+/****************************************************
+Flash
+*****************************************************/
+
+#flash {
+	margin: 30px 40px -30px;
+}
+
+ul#flash_list {
+  padding-left: 0px;
+  list-style-type: none;
+	margin: 0px;
+}
+
+.flash_item {
+  padding: 10px 60px;
+  color: #fff;
+}
+
+.flash_item.notice {
+  @include gradiented(#990000, #4A0000);
+	color: #fff;
+}
+
+.flash_item.error {
+  @include gradiented(#FD8C8C, #CC0000);	
+}
+
+/****************************************************
+CMS Rsvps
+*****************************************************/
+
+#rsvp_replies {
+	th { background: #eee; }
+	td, th { padding: 10px; text-align: left; border: 1px solid #eee; }
+	
+	td.reply_name { width: 200px; }
+	td.reply_attending { width: 100px; }
+	td.reply_menu_choices { width: 200px; }
+	td.reply_dietary_requirements { width: 250px; }
+}
