@@ -1,8 +1,8 @@
-pt = Rake::Task['assets:precompile']
-Rake.application.send(:eval, "@tasks.delete('assets:precompile')")
+pt = Rake::Task['assets:environment']
+Rake.application.send(:eval, "@tasks.delete('assets:environment')")
 
 namespace :assets do
-  task :precompile do
+  task :environment do
     module ::Mongoid
       def load!(config_file)
         puts "Skipping connection to Mongo DB"
