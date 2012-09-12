@@ -31,6 +31,7 @@ DefaultSite::Application.routes.draw do
   
   # Routes in the host application
   get '/pages/:id', :to => 'pages#show', :as => :page_show
+  match '/photos', :to => 'pages#show', :id => 'photos', :as => :photos
   match '/', :to => 'pages#show', :id => 'home', :as => :root
   
 end

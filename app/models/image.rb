@@ -12,7 +12,6 @@ class Image
 
   GALLERIES = {
     :content => {:name => 'Content', :slug => 'content', :gallery => false, :variable => true},
-    :background => {:name => 'Background', :slug => 'background', :width => 1160, :height => 300, :gallery => false, :variable => false},
     :slideshow => {:name => 'Slideshow', :slug => 'slideshow', :thumbnail_width => 140, :thumbnail_height => 100, :gallery => true, :variable => true}
   }
 
@@ -33,6 +32,14 @@ class Image
 
   def self.from_gallery(gallery)
     gallery ? by_gallery(gallery) : all
+  end
+
+  def self.order(params)
+    images = from_gallery(params[:gallery])
+    images.each do |image|
+      image.position = params['image'].index(image.id.to_s) + 1
+      image.save!
+    end
   end
 
 end

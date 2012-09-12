@@ -35,8 +35,9 @@ class ImagesController < AdminController
 
   def destroy
     image = Image.find(params[:id])
+    gallery = image.gallery
     image.destroy
-    redirect_to images_path
+    redirect_to images_path(:gallery => gallery)
   end
 
   def set_gallery
@@ -46,8 +47,7 @@ class ImagesController < AdminController
   end
 
   def order_images
-    #gallery = ImageCollection.find(params[:collection])
-    #collection.order_images(params)
+    Image.order(params)
     render :nothing => true
   end  
 end
